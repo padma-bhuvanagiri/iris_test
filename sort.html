@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Sort</title>
+      <meta name="description" content="Sort">
+      <meta name="author" content="Sort">
+      <style>
+         table {
+         border-spacing: 0;
+         width: 60%;
+         border: 1px solid #ddd;
+         margin: 0 auto;			
+         border-collapse: collapse; 
+         border: 1px solid #999; 
+         box-shadow: 5px 10px 15px #888888;
+         }
+         th {
+         cursor: pointer;
+         color: #fff;
+         background: url(images/bg_2.gif) no-repeat 99%;
+         }
+         th, td {
+         text-align: left;
+         padding: 6px;
+         width:5%;
+         }
+         tr:nth-child(even) {
+         background-color: #f2f2f2;
+         }
+         tr:nth-child(2n+3) {
+         background-color: #ffffff;
+         }
+         thead, tbody { display: block; width: 100%;}
+         thead { background-color: #000000;}
+         tbody {
+         height: 390px;      
+         overflow-y: auto;    
+         overflow-x: hidden; 
+         }
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div style="text-align:center;padding:30px 0;">Click the header to sort the table in ascending/descending order according to the header clicked upon.</div>
+      <table>
+         <thead>
+            <tr>
+               <th>Student ID</th>
+               <th>First Name</th>
+               <th>Last Name</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>FVQC73A9BE</td>
+               <td>Fidela</td>
+               <td>Beachy</td>
+            </tr>
+            <tr>
+               <td>L1C2VP6X7N</td>
+               <td>Clara</td>
+               <td>Christain</td>
+            </tr>
+            <tr>
+               <td>SKFEIUMP0D</td>
+               <td>Mariela</td>
+               <td>Setton</td>
+            </tr>
+            <tr>
+               <td>TXTFJMPBQK</td>
+               <td>Chasidy</td>
+               <td>Adames</td>
+            </tr>
+            <tr>
+               <td>M0SCXPJUZ8</td>
+               <td>Cornelius</td>
+               <td>Pickering</td>
+            </tr>
+            <tr>
+               <td>I241X66ER3</td>
+               <td>Jesse</td>
+               <td>Bravo</td>
+            </tr>
+            <tr>
+               <td>WVBZ3TK1U4</td>
+               <td>Darcel</td>
+               <td>Eichenlaub</td>
+            </tr>
+            <tr>
+               <td>WIGUS3E6OZ</td>
+               <td>Carmela</td>
+               <td>Kao</td>
+            </tr>
+            <tr>
+               <td>O9N9IYX7Y9</td>
+               <td>Alison</td>
+               <td>Gershman</td>
+            </tr>
+            <tr>
+               <td>OFDNDMMIN5</td>
+               <td>Lemuel</td>
+               <td>Lynes</td>
+            </tr>
+            <tr>
+               <td>P9VNBXITGP</td>
+               <td>Korey</td>
+               <td>Forehand</td>
+            </tr>
+            <tr>
+               <td>JEMC6GSPVJ</td>
+               <td>Eveline</td>
+               <td>Salvo</td>
+            </tr>
+            <tr>
+               <td>EZ2AGEYBPJ</td>
+               <td>Kayleigh</td>
+               <td>Marengo</td>
+            </tr>
+            <tr>
+               <td>M7FD4WOW2V</td>
+               <td>Azzie</td>
+               <td>Abrahamson</td>
+            </tr>
+            <tr>
+               <td>BD9EUJK4IQ</td>
+               <td>Kiersten</td>
+               <td>Mirabella</td>
+            </tr>
+            <tr>
+               <td>PI35UUDSZ9</td>
+               <td>Christene</td>
+               <td>Moncada</td>
+            </tr>
+            <tr>
+               <td>J44Z410UO7</td>
+               <td>Gigi</td>
+               <td>Orlando</td>
+            </tr>
+            <tr>
+               <td>U9PW7X9MDN</td>
+               <td>Brinda</td>
+               <td>Zukowski</td>
+            </tr>
+            <tr>
+               <td>WB655SLNA5</td>
+               <td>Rueben</td>
+               <td>Bruch</td>
+            </tr>
+            <tr>
+               <td>ATYFV78DOC</td>
+               <td>Tommye</td>
+               <td>Summerford</td>
+            </tr>
+         </tbody>
+      </table>
+      <br><br><br><br>
+      <script>
+         $('th').click(function(){
+             var table = $(this).parents('table').eq(0)
+             var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+             this.asc = !this.asc
+             if (!this.asc){rows = rows.reverse()}
+             for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+         })
+         function comparer(index) {
+             return function(a, b) {
+                 var valA = getCellValue(a, index), valB = getCellValue(b, index)
+                 return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+             }
+         }
+         function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+      </script>
+   </body>
+</html>
