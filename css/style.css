@@ -186,7 +186,7 @@ padding: 0 3px 0 5px;
 }
 @media screen and (min-width: 1000px) {
 	.slidecontainer {
-		width: 825px;
+		width: 950px;
 		height: 5px;
 		background-color: #f1f1f1;
 		position: absolute;
@@ -209,8 +209,8 @@ padding: 0 3px 0 5px;
 @media screen  and (min-width: 767px){
 	.content_1 {
 		width:100%;
-		padding:1.5rem;	
-		height:120px;
+		padding:10px 1.5rem;	
+		height:100px;
 	}
 	.content_1_left {		
 		float:left;
@@ -406,6 +406,9 @@ input[type=radio] {
 		width:250px;
 		padding: 15px;
 		float:left;	
+	}
+	.quadrant_top {		
+		padding: 35px  15px 15px  15px;
 	}
 	.image_left_top {
 		width:85px;
@@ -612,6 +615,7 @@ input[type=radio] {
 		font-size:12px;
 		text-transform:uppercase;
 		color:#ffffff;
+		padding-bottom: 10px;
 	}
 	.footer_col_1{				
 		color:#666666;
@@ -695,7 +699,7 @@ input[type=radio] {
 		
 	}
 	.footer_col_4 input, textarea{						
-		width:225px;								
+		width:210px;								
 	}
 }	
 @media screen and (min-width: 767px) and (max-width: 999px){
@@ -712,7 +716,7 @@ input[type=radio] {
 		float:left;
 	}
 	.footer_col_4 input, textarea{						
-		width:225px;								
+		width:100%;								
 	}
 }
 @media screen and (max-width: 767px){
@@ -727,7 +731,7 @@ input[type=radio] {
 		width:100%;
 	}
 	.footer_col_4 input, textarea{							
-		width:90%;								
+		width:99%;								
 	}
 }
 .footer_pad {				
